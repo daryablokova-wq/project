@@ -1,0 +1,97 @@
+---
+layout: default
+title: Il Tesoro dei Medici
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <nav>
+    <h3>Sections:</h3>
+    <ul>
+      <li><a href="topic.html">:art: about the topic</a></li>
+      <li><a href="methodology.html">⚒️ the methodology</a></li>
+      <li><a href="sparql.html">📊 SPARQL & Results</a></li>
+      <li><a href="gaps.html">🔍 Identifying Gaps</a></li>
+      <li><a href="prompts.html">💬 LLM Prompts</a></li>
+      <li><a href="rdf.html">🔗 new triples</a></li>
+      <li><a href="challenges.html">⚠️ Challenges</a></li>
+      <li><a href="conclusion.html">✅ Conclusion</a></li>
+    </ul>
+  </nav>
+</div>
+
+  <img src="nonantola.png" alt="Il Tesoro dei Medici" style="width:600px; border-radius:10px; margin-top:20px;">
+
+  <main>
+    <section>
+      <h2>Introduction</h2>
+      <p>
+      “Il Tesoro dei Medici” was an exhibition held in Moscow in 2011. It ran from 20 May to 1 August 2011 and was organized as part of the cultural exchanges between Italy and Russia.
+      </p>
+      <p>
+      The exhibition presented the extraordinary decorative-art collection of the Medici family, the dynasty that ruled Florence and Tuscany during the Renaissance. The works came mainly from the Medici collections preserved in Florence.
+      </p>
+      <p>
+      The show focused not on paintings, but on the Medici passion for luxury objects and collecting, including jewellery, gold and silver works, and artistic objects that demonstrated the family’s wealth, taste, and political power. 
+      </p>
+      <p>
+      <strong>A major theme</strong> of the exhibition was how the Medici used collecting as a way to express Renaissance ideals of culture, magnificence, and authority. The treasures reflected the tastes of rulers such as Cosimo I de' Medici and later members of the dynasty, including the final Medici heir Anna Maria Luisa de' Medici.
+      </p>
+      <p>
+      Our goal was to explore how the combination of SPARQL queries and Large Language Models (LLMs) can enrich an existing cultural heritage knowledge graph with new, meaningful content.
+      </p>
+        Despite its relevance, it is still underrepresented in structured knowledge graphs, which makes it a perfect candidate for enrichment through semantic technologies and AI-powered language models.
+      </p>
+    </section>
+
+   <section id="tools" style="margin-top: 50px;">
+  <h2>Tools</h2>
+  <ul>
+    <li><a href="http://wit.istc.cnr.it/arco/" target="_blank"><strong>ArCo</strong></a></li>
+    <li><a href="https://dati.cultura.gov.it/sparql" target="_blank"><strong>ArCo SPARQL endpoint</strong></a></li>
+    <li><a href="https://gemini.google.com/?hl=it" target="_blank"><strong>Gemini</strong></a></li>
+    <li><a href="https://chat.openai.com/" target="_blank"><strong>ChatGPT</strong></a></li>
+  </ul>
+</section>
+
+    <section>
+      <h2>Our Team</h2>
+<p>This project was collaboratively developed by:</p>
+
+<div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px;">
+  
+  <div style="text-align: center;">
+    <img src="alice.jpg" alt="Alice Montorsi" style="width: 120px; border-radius: 50%;">
+    <p><strong>Alice Montorsi</strong></p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="giulia-manenti.jpg" alt="Giulia Manenti" style="width: 120px; border-radius: 50%;">
+    <p><strong>Giulia Manenti</strong></p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="giulia-marani.jpg" alt="Giulia Marani" style="width: 120px; border-radius: 50%;">
+    <p><strong>Giulia Marani</strong></p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="matilde.jpg" alt="Matilde Ciarrocchi" style="width: 120px; border-radius: 50%;">
+    <p><strong>Matilde Ciarrocchi</strong></p>
+  </div>
+
+</div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 KE4H Project – University of Bologna</p>
+  </footer>
+  <hr>
+<div style="display: flex; justify-content: flex-end; margin-top: 2em;">
+  <a href="topic.html">Next →</a>
+</div>
+</body>
+</html>
