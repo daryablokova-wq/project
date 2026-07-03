@@ -260,7 +260,7 @@ LIMIT 100</div>
     </ul>
 
     <!-- Query 2 -->
-    <h3>Query 2: Describe Event IRI</h3>
+    <h3>Query 2: Describe the Event IRI</h3>
     <div class="code-block">PREFIX cis: &lt;https://w3id.org/arco/resource/CulturalEvent/&gt;
 DESCRIBE cis:4c88dc5e0662f98f9c0ff26a0b51e4d3</div>
     <p><strong>Description:</strong> The first thing needed to be done is to determine the information about my event that is already present in the ArCo. Exploring the KG's ontology, we are able to identify and use classes and properties that can be used to model a needed query. The task can be done in a couple of ways. For instance, on the left I have provided a SPARQL query requesting all the information available about the event in the form of microdata document. Along with the place, name (rdfs:label OR l0:name) and the date (tiapit:time) of my event, I have successfully found the information about the type of the event (rdf:type) and a cultural entity involved – unfortunately, only one entity is presented in the microdata document (cis:involvesCulturalEntity) (link 3)</p>
@@ -289,21 +289,61 @@ WHERE {
   }
 }</div>
     <p><strong>Description:</strong> However, I wanted to focus on two specific missing things for my event. When I have checked via SPARQL whether they exist, the answer from ArCo made it clear they are not presented in the KG. Those things are as following:<br>
-        <strong>a)</strong> what museum held my event in Moscow (e.g., through clv:hasSpatialCoverage) – no response, empty table;<br>
-        <strong>b)</strong> who has organised my event (e.g., through "arco:hasEventOrganiser ?organiser") – no response, empty table.</p>
-    <p>Checking the results with the SPARQL query that allows us to see all the features of the specific event (provided on the left, plus see <a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0ASELECT+%3Fproperty+%3Fvalue+%3FvalueLabel%0D%0A%0D%0AWHERE+%7B%0D%0A%0D%0A%3Chttps%3A%2F%2Fw3id.org%2Farco%2Fresource%2FCulturalEvent%2F4c88dc5e0662f98f9c0ff26a0b51e4d3%3E%0D%0A%3Fproperty+%3Fvalue+.%0D%0A%0D%0AOPTIONAL+%7B%0D%0A++%3Fvalue+rdfs%3Alabel+%3FvalueLabel+.%0D%0A%7D%0D%0A%0D%0A%7D&format=text%2Fhtml&timeout=0&signal_void=on">link 4</a>), we receive the proof ArCo misses the specific place of the event and its organisers. Those are the problems we are focusing on.</p>
+        <strong>a)what museum held my event in Moscow (e.g., through clv:hasSpatialCoverage)</strong> – no response, empty table;<br>
+        <strong>b)who has organised my event (e.g., through "arco:hasEventOrganiser ?organiser")</strong> – no response, empty table.</p>
+    <p>Checking the results with the SPARQL query that allows us to see all the features of the specific event (provided above, plus see link 4), we receive the proof ArCo misses the specific place of the event and its organisers.</p>
+    <p><h4>Those are the problems we are focusing on.</h4></p>
+      <ul class="link-list">
+        <li><a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0ASELECT+%3Fproperty+%3Fvalue+%3FvalueLabel%0D%0A%0D%0AWHERE+%7B%0D%0A%0D%0A%3Chttps%3A%2F%2Fw3id.org%2Farco%2Fresource%2FCulturalEvent%2F4c88dc5e0662f98f9c0ff26a0b51e4d3%3E%0D%0A%3Fproperty+%3Fvalue+.%0D%0A%0D%0AOPTIONAL+%7B%0D%0A++%3Fvalue+rdfs%3Alabel+%3FvalueLabel+.%0D%0A%7D%0D%0A%0D%0A%7D&format=text%2Fhtml&timeout=0&signal_void=on">">link 4 (everything ArCo has about my event)</a></li>
+    </ul>
 </section>
 
 <!-- AI Tools & Prompting -->
 <section>
-    <h2>3. Using AI Tools to Enrich the Knowledge Graph</h2>
+    <h2>3. Prompting LLMs, generating knowledge</h2>
 
     <h3>Step 1: Questions</h3>
-    <p>The next step is to ask the AI tools to provide us with all the necessary information. We use <strong>ChatGPT</strong>, since it is one of the most versatile conversational and "reliable" AI tools. Nevertheless, we will be comparing ChatGPT's responses to those of <strong>Pi AI</strong> known as "the first emotionally intelligent AI", as indicated on its website, for researching purposes. In order to minimise any additional context, we will apply format prompting to the both AI tools.</p>
+    <p>The next step is to ask the AI tools to provide us with all the necessary information. We use <strong>ChatGPT</strong>, since it is one of the most versatile conversational and "reliable" AI tool. Nevertheless, we will be comparing ChatGPT's responses to those of <strong>Pi AI</strong> known as <i>"the first emotionally intelligent AI"</i>, as indicated on its website.</p>
     <div class="code-block" style="background-color: #f0ebe2; color: #1e1e1e; border-left-color: #4a2c2c;">
-        <strong>Prompt for the LLMs:</strong><br>
-        "Provide me with necessary information on 'Il Tesoro dei Medici'. Provide me with the answer as following: 1) the date of the event; 2) the place of the event – country, city, museum; 3) the organisers of the event. The date of the event is being asked to avoid the possibility of events with the same name appearing."
+        <ul class="link-list">
+        <li>We will use three prompting techniques: <strong>Zero-shot, Few-shot and Chain-of-Thought.</strong></li>
+    </ul>
+        <strong>Zero-shot prompt</strong><br>
+        <i>Provide me with necessary information on the cultural event "Il Tesoro dei Medici".</i>
     </div>
+    <p><h3>The results</h3></p>
+      <img src="tesoro2.jpg" alt="menologio" width="1000" height="600">
+      <img src="tesoro3.jpg" alt="menologio" width="1000" height="600">
+
+     <strong>Few-shot prompt</strong><br>
+        <i>Provide me with necessary information on the cultural event "Il Tesoro dei Medici". For example:
+Input 1: Provide me with necessary information on the cultural event "Through the Centuries From Giotto to Malevich".
+Output 1: 
+Name of the event: "Through the Centuries From Giotto to Malevich„
+Date: 2005
+Place: Russia, Moscow, The Kremlin Museums
+Organisers: The Ministry of Foreign affairs, "Museo Puškin delle belle arti„
+
+Input 2: Provide me with necessary information on the cultural event "The Unknown Schukin".
+Output 2: 
+Name of the event: "The Unknown Schukin„
+Date: 2025-2026
+Place: Russia, Moscow, The Kremlin Museums
+Organisers: The Gallery of European Art
+</i>
+    </div>
+    <p><h3>The results</h3></p>
+      <img src="tesoro2.jpg" alt="menologio" width="1000" height="600">
+      <img src="tesoro3.jpg" alt="menologio" width="1000" height="600">
+
+     <strong>Chain-of-Thought prompt</strong><br>
+        <i>Provide me with necessary information on the cultural event "Il Tesoro dei Medici". For example: 
+Input: Provide me with necessary information  on the cultural event "Through the Centuries From Giotto to Malevich".
+Output: The event "Through the Centuries From Giotto to Malevich". The most basic information about any event is the date and the place of it. Thus, the date of the event was May 2011 – there is the source [the source]. Then, the event, according to [this source], was held in Russia, Moscow, in the Kremlin Museums. Another vital point needed to be considered while investigating an event is the organisers of it. For the currently explored event, the organisers are The Ministry of Foreign affairs and the "Museo Puškin delle belle arti" [the source]. 
+Let’s think step by step
+</i>
+    </div>
+    <p><h3>The results</h3></p>
       <img src="tesoro2.jpg" alt="menologio" width="1000" height="600">
       <img src="tesoro3.jpg" alt="menologio" width="1000" height="600">
 
