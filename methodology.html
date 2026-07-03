@@ -70,6 +70,53 @@
             margin-bottom: 1.2rem;
             text-align: justify;
         }
+
+        /* Team Members Section */
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0 40px 0;
+        }
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ece8e0;
+            padding: 20px 30px 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #d4cdc2;
+            min-width: 150px;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #b8860b;
+            margin-bottom: 12px;
+        }
+        .team-member .member-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4a2c2c;
+        }
+        .team-member .member-name a {
+            color: #4a2c2c;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .team-member .member-name a:hover {
+            color: #b8860b;
+        }
+        
         .event-meta {
             background-color: #ece8e0;
             padding: 15px 20px;
@@ -228,32 +275,45 @@
        
     <h2>The objectives of the project</h2>
     <div class="event-meta">
-        <p><strong>One:</strong> 1) To use such as <strong>Pi AI</strong> and <strong>ChatGPT</strong> to produce new knowledge and propose RDF triples.</p>
-        <p>2) <strong>To enrich</strong> the ArCo ontologies using the <strong>SPARQL endpoint</strong> and the LLM’s output.</p>
+        <p>1) To use LLMs such as <strong>Pi AI</strong> and <strong>ChatGPT</strong> to produce new knowledge and propose <strong>RDF triples.</strong></p>
+        <p>2) <strong>To enrich</strong> the ArCo ontologies using the <strong>SPARQL endpoint</strong> and the <strong>LLM’s output.</strong></p>
     </div>
 </section>
           <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
 
       <h2>The tools used</h2>
-    <div class="event-meta">
-        <a href="https://dati.beniculturali.it/arco/index.php?lang=en"><strong>ArCo Knowledge Graph</strong></a>
-        <a href="https://chatgpt.com/"><strong>ChatGPT</strong></a>
-        <a href="https://pi.ai/talk"><strong>Pi AI</strong></a>
-        <a href="https://github.com/"><strong>GitHub</strong></a>
+      <div class="team-members">
+            <div class="team-member">
+                <img src="images/daria.jpg" alt="arco">
+                <div class="member-name"><a href="https://dati.beniculturali.it/arco/index.php?lang=en">ArCo KG</a></div>
+            </div>
+          <div class="team-member">
+                <img src="images/daria.jpg" alt="chatgpt">
+                <div class="member-name"><a href="https://chatgpt.com/">ChatGPT</a></div>
+            </div>
+            <div class="team-member">
+                <img src="images/daria.jpg" alt="piai">
+                <div class="member-name"><a href="https://pi.ai/talk">Pi AI</a></div>
+            </div>
+            <div class="team-member">
+                <img src="images/daria.jpg" alt="github">
+                <div class="member-name"><a href="https://github.com/">GitHub</a></div>
+            </div>
+          
     </div>
 </section>
-          <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
-          <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
-          <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
-          <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
 
 
-      <h2>Why have I chosen this event?</h2>
+      <h2>The process step-by-step</h2>
     <div class="event-meta">
-        <p><strong>“Il Tesoro dei Medici”</strong> was an exhibition held in <strong>Moscow</strong> in 2011. It ran from <strong>20 May to 1 August 2011</strong> and was organized as part of the cultural exchanges between Italy and Russia.</p>
-        <p>The exhibition presented the extraordinary decorative-art collection of the Medici family, the dynasty that ruled Florence and Tuscany during the Renaissance. The works came mainly from the Medici collections preserved in Florence.</p>
-        <p>The show focused not on paintings, but on the Medici passion for luxury objects and collecting, including jewellery, gold and silver works, and artistic objects that demonstrated the family’s wealth, taste, and political power.</p>
-        <p>A major theme of the exhibition was how the Medici used collecting as a way to express Renaissance ideals of culture, magnificence, and authority. The treasures reflected the tastes of rulers such as <strong>Cosimo I de' Medici</strong> and later members of the dynasty, including the final Medici heir <strong>Anna Maria Luisa de' Medici</strong>.</p>
+        <p>1) <strong>selecting the topic</strong> the topic by querying the KG;</p>
+        <p>2) <strong>exploring ArCo’s ontology</strong> to identify classes;</p>
+        <p>3) <strong>retrieving</strong> the existing information about our event from the KG;</p>
+        <p>4) stating <strong>the main problem to solve</strong> during the project;</p>
+        <p>5) <strong>engineering the prompts</strong> for the LLMs;</p>
+        <p>6) <strong>comparing and analyzing</strong>the LLMs’ outputs;</p>
+        <p>7) designing new triples, thus <strong>enriching ArCo’s ontology;</strong></p>
+        <p>8) creating and publishing of <strong>the website.</strong></p>
     </div>
 </section>
           <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
