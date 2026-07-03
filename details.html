@@ -350,16 +350,16 @@ WHERE {
 
     <h3>Step 2: Answers</h3>
     <ul>
-        <li><strong>Zero-shot.</strong><i>ChatGPT:</i> the tool managed to provide with almost all the information found about the event that cannot directly be categorized as „necessary”. The model has also indicated the sources. <i>Pi AI:</i> the LLM, especially compared to ChatGPT’s output, has provided with little information on the event, not covering the needed aspects in its’output.
+        <li><strong>Zero-shot.</strong> <i>ChatGPT:</i> the tool managed to provide with almost all the information found about the event that cannot directly be categorized as „necessary”. The model has also indicated the sources. <i>Pi AI:</i> the LLM, especially compared to ChatGPT’s output, has provided with little information on the event, not covering the needed aspects in its’output.
 <strong>The conclusion: Pi AI requires more detailed engineered prompt.</strong>
 </li>
-        <li><strong>Few-shot.</strong><i>ChatGPT:</i> the model followed the suggested output format perfectly. The source checking proved the information true. <i>Pi AI:</i> the tool followed the suggested output format, although adding some new information (the curators of the event). The source checking proved the information true. <strong>The conclusion:</strong> ChatGPT strictly followed the prompt, whilst Pi AI requires more detailed engineered prompt to align with the instructions.</li>
-        <li><strong>Chain-of-Thought.</strong><i>ChatGPT:</i> the tool’s output is full and rich with all the sources indicated. The source checking proved the information true. <i>Pi AI:</i> the output is much shorter compared to that of ChatGPT. Nevertheless, it answers the main questions indicated in the project. Althought the LLM failed to provide any sources. The source checking proved the information false.
+        <li><strong>Few-shot.</strong> <i>ChatGPT:</i> the model followed the suggested output format perfectly. The source checking proved the information true. <i>Pi AI:</i> the tool followed the suggested output format, although adding some new information (the curators of the event). The source checking proved the information true. <strong>The conclusion:</strong> ChatGPT strictly followed the prompt, whilst Pi AI requires more detailed engineered prompt to align with the instructions.</li>
+        <li><strong>Chain-of-Thought.</strong> <i>ChatGPT:</i> the tool’s output is full and rich with all the sources indicated. The source checking proved the information true. <i>Pi AI:</i> the output is much shorter compared to that of ChatGPT. Nevertheless, it answers the main questions indicated in the project. Althought the LLM failed to provide any sources. The source checking proved the information false.
 <strong>The conclusion: Pi AI failed to provided trustful unformation whilst ChatGPT’s output was not only truthful, but also covered all the needed aspects.</strong>
 </li>
     </ul>
     <div class="summary-box">
-        <p><strong>The general conclusion:</strong>The general conclusion: ChatGPT, although adding too much context to its replies (except of the Few-shot technique prompting), is more reliable LLM and will be used for this project. For less reliable AI tools, the more detailed prompt engineering is required. Moreover, for out project the Few-Shot prompting proved to be the most efficient one, since with this technique provides us with the most clear, transparent and no-unnecessary-information output.</p>
+        <p><strong>The general conclusion:</strong> ChatGPT, although adding too much context to its replies (except of the Few-shot technique prompting), is more reliable LLM and will be used for this project. For less reliable AI tools, the more detailed prompt engineering is required. Moreover, for out project the Few-Shot prompting proved to be the most efficient one, since with this technique provides us with the most clear, transparent and no-unnecessary-information output.</p>
     </div>
  
 </section>
@@ -390,6 +390,18 @@ https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3</d
     <strong>OR</strong><br>
     <strong>New triplet (option 2):</strong> Il Tesoro dei Medici – hasEventOrganiser – Gallerie degli Uffizi</p>
     <p>The SPARQL query through the ArCo ontology and ChatGPT for the first option is provided on the left.</p>
+
+     <!-- SPARQL -->
+    <h3>SPARQl-query</h3>
+    <p>Now, let's ask the LLM to provide us with the whole SPARQL-query suitable for the ArCo's endpoint using new triples. The query for ChatGPT:</p>
+ <div class="summary-box">
+        <p>I've created new triples to enrich ArCo. Can you write three complete SPARQL queries aligned with the ArCo ontology, incorporating my triples into them one by one?</p>
+<p>Triple 1: https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3 clv:hasSpatialCoverage https://w3id.org/arco/resource/GeographicalFeature/d3e863b4c91bff6d3a274e923e9e5968/MuseiDelCremlino</p>
+<p>Triple 2: https://w3id.org/arco/resource/CulturalInstituteOrSite/DBunicoCG20403 event:isEventOrganiserof https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3</p>
+<p>Triple 3: https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3 event:hasEventOrganiser https://w3id.org/arco/resource/CulturalInstituteOrSite/DBunicoCG20403</p>
+    </div>
+<p>The LLM's output is provided on the left</p>
+    
 </section>
 
 <!-- Summary -->
