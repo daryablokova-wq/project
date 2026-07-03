@@ -400,8 +400,87 @@ https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3</d
 <p>Triple 2: https://w3id.org/arco/resource/CulturalInstituteOrSite/DBunicoCG20403 event:isEventOrganiserof https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3</p>
 <p>Triple 3: https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3 event:hasEventOrganiser https://w3id.org/arco/resource/CulturalInstituteOrSite/DBunicoCG20403</p>
     </div>
-<p>The LLM's output is provided on the left</p>
-    
+<p>The LLM's output is provided below</p>
+     <div class="code-block">"SPARQL-query 1:
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX clv: <https://w3id.org/italia/onto/CLV/>
+PREFIX cis: <http://dati.beniculturali.it/cis/>
+
+SELECT DISTINCT ?event ?eventLabel ?placeLabel
+WHERE {
+
+    ?event a cis:CulturalEvent ;
+           clv:hasSpatialCoverage
+           <https://w3id.org/arco/resource/GeographicalFeature/d3e863b4c91bff6d3a274e923e9e5968/MuseiDelCremlino> .
+
+    OPTIONAL { ?event rdfs:label ?eventLabel . }
+
+    OPTIONAL {
+        <https://w3id.org/arco/resource/GeographicalFeature/d3e863b4c91bff6d3a274e923e9e5968/MuseiDelCremlino>
+            rdfs:label ?placeLabel .
+    }
+
+    FILTER(!BOUND(?placeLabel) || REGEX(LCASE(STR(?placeLabel)), ""creml""))
+}
+ORDER BY ?eventLabel
+LIMIT 100
+
+
+SPARQL-query 2:
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX event: <https://w3id.org/italia/onto/CIS/>
+PREFIX arco: <https://w3id.org/arco/resource/>
+
+SELECT DISTINCT ?organiser ?organiserLabel ?eventLabel
+WHERE {
+
+    ?organiser
+        event:isEventOrganiserOf
+        <https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3> .
+
+    OPTIONAL {
+        ?organiser rdfs:label ?organiserLabel .
+    }
+
+    OPTIONAL {
+        <https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3>
+            rdfs:label ?eventLabel .
+    }
+
+    FILTER(!BOUND(?organiserLabel) ||
+           REGEX(LCASE(STR(?organiserLabel)), ""museum|museo|kremlin|creml""))
+}
+ORDER BY ?organiserLabel
+LIMIT 100
+
+
+SPARQL-query 3:
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX event: <https://w3id.org/italia/onto/CIS/>
+
+SELECT DISTINCT ?organiser ?organiserLabel ?eventLabel
+WHERE {
+
+    <https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3>
+        event:hasEventOrganiser ?organiser .
+
+    OPTIONAL {
+        ?organiser rdfs:label ?organiserLabel .
+    }
+
+    OPTIONAL {
+        <https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3>
+            rdfs:label ?eventLabel .
+    }
+
+    FILTER(!BOUND(?organiserLabel) ||
+           REGEX(LCASE(STR(?organiserLabel)), ""museum|museo|kremlin|creml""))
+}
+ORDER BY ?organiserLabel
+LIMIT 100"</div>
 </section>
 
 <!-- Summary -->
