@@ -230,7 +230,7 @@
 <section>
     <h2>1. The main focus</h2>
     <p>After querying ArCo on different topics related both to Italy and Russia, it has occurred to me that researching cultural events will be the most illustrative and interesting process – not only ArCo has got a vast amount of information on them, but also misses some important pieces of it.</p>
-    <p>Thus, the topic is chosen – cultural events combining Russian and Italian cultural heritage.</p>
+    <p>Thus, the topic is chosen – <strong>cultural events combining Russian and Italian cultural heritage.</strong></p>
     
 <!-- SPARQL Queries and Results -->
 <section>
@@ -263,7 +263,10 @@ LIMIT 100</div>
     <h3>Query 2: Describe Event IRI</h3>
     <div class="code-block">PREFIX cis: &lt;https://w3id.org/arco/resource/CulturalEvent/&gt;
 DESCRIBE cis:4c88dc5e0662f98f9c0ff26a0b51e4d3</div>
-    <p><strong>Description:</strong> The first thing needed to be done is to determine the information about my event that is already present in the ArCo. Exploring the KG's ontology, we are able to identify and use classes and properties that can be used to model a needed query. The task can be done in a couple of ways. For instance, on the left I have provided a SPARQL query requesting all the information available about the event in the form of microdata document. Along with the place, name (rdfs:label OR l0:name) and the date (tiapit:time) of my event, I have successfully found the information about the type of the event (rdf:type) and a cultural entity involved – unfortunately, only one entity is presented in the microdata document (cis:involvesCulturalEntity) (<a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+cis%3A+%3Chttps%3A%2F%2Fw3id.org%2Farco%2Fresource%2FCulturalEvent%2F%3E%0D%0ADESCRIBE+cis%3A4c88dc5e0662f98f9c0ff26a0b51e4d3&format=text%2Fhtml&timeout=0&signal_void=on">link 3</a>).</p>
+    <p><strong>Description:</strong> The first thing needed to be done is to determine the information about my event that is already present in the ArCo. Exploring the KG's ontology, we are able to identify and use classes and properties that can be used to model a needed query. The task can be done in a couple of ways. For instance, on the left I have provided a SPARQL query requesting all the information available about the event in the form of microdata document. Along with the place, name (rdfs:label OR l0:name) and the date (tiapit:time) of my event, I have successfully found the information about the type of the event (rdf:type) and a cultural entity involved – unfortunately, only one entity is presented in the microdata document (cis:involvesCulturalEntity) (link 3)</p>
+    <ul class="link-list">
+        <li><a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+cis%3A+%3Chttps%3A%2F%2Fw3id.org%2Farco%2Fresource%2FCulturalEvent%2F%3E%0D%0ADESCRIBE+cis%3A4c88dc5e0662f98f9c0ff26a0b51e4d3&format=text%2Fhtml&timeout=0&signal_void=on">link 3 (microdata document)</a></li>
+    </ul>
     <p>However, by comparing the events held in different cities, we can assume that for each of them the pieces of information indicated are these:
         <ul>
             <li><strong>a)</strong> name of the event (rdfs:label OR l0:name);</li>
