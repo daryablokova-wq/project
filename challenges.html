@@ -225,23 +225,16 @@
     <div class="content">
         <h1>Daria</h1>
         <h1>The challenges I have faced</h1>
-       
-    <h2>Why have I chosen this event?</h2>
-    <div class="event-meta">
-        <p><strong>“Il Tesoro dei Medici”</strong> was an exhibition held in <strong>Moscow</strong> in 2011. It ran from <strong>20 May to 1 August 2011</strong> and was organized as part of the cultural exchanges between Italy and Russia.</p>
-        <p>The exhibition presented the extraordinary decorative-art collection of the Medici family, the dynasty that ruled Florence and Tuscany during the Renaissance. The works came mainly from the Medici collections preserved in Florence.</p>
-        <p>The show focused not on paintings, but on the Medici passion for luxury objects and collecting, including jewellery, gold and silver works, and artistic objects that demonstrated the family’s wealth, taste, and political power.</p>
-        <p>A major theme of the exhibition was how the Medici used collecting as a way to express Renaissance ideals of culture, magnificence, and authority. The treasures reflected the tastes of rulers such as <strong>Cosimo I de' Medici</strong> and later members of the dynasty, including the final Medici heir <strong>Anna Maria Luisa de' Medici</strong>.</p>
-    </div>
-</section>
 
-     <h2>Problem 1: while using the LLMs to design the SPARQL-queries, it was clear that not all of them understand the ArCo ontology and use it to generate their output. Sometimes they are wrong identifying classes existing in the ArCo.</h2>
+     <h2>Problem 1</h2>
     <div class="event-meta">
+        <p>– <i>while using the LLMs to design the SPARQL-queries, it was clear that not all of them understand the ArCo ontology and use it to generate their output. Sometimes they are wrong identifying classes existing in ArCo.</i></p>
         <p><strong>Solution:</strong> to explore the ontologies myself by hand, then to teach the LLMs to use the right names of the predicates, classes, properties (e.g., instead of cis:eventOrganiser to use event:isEventOrganiserof)</p>
     </div>
 
-       <h2>Problem 2: the very narrow topic and missing information in ArCo – the information on the chosen topic presented in ArCo is clearly insufficient, so the ways to enrich it are many. To identify the most necessary gaps to fill was a challenge. Moreover, the event was held long time ago, so even on the Internet it is difficult to find reliable sources to check the information.</h2>
+       <h2>Problem 2</h2>
     <div class="event-meta">
+        <p><i>– the very narrow topic and missing information in ArCo – the information on the chosen topic presented in ArCo is clearly insufficient, so the ways to enrich it are many. To identify the most necessary gaps to fill was a challenge. Moreover, the event was held long time ago, so even on the Internet it is difficult to find reliable sources to check the information.</i></p>
         <p><strong>Solution:</strong> to earch for more sources in different languages, engineer more detailed prompts for LLMs, double-check everything; identify the priorities in order to enrich ArCo with the necessary piece of information.</p>
     </div>
 
