@@ -333,27 +333,33 @@ WHERE {
      </div>
         
   <p><h3>The results</h3></p>
-      <img src="images/result3.png" alt="menologio" width="700" height="600">
+      <img src="images/result3.png" alt="menologio" width="800" height="450">
       <img src="images/result4.png" alt="menologio" width="700" height="600">
 
-     <strong>Chain-of-Thought prompt</strong><br>
+     <div class="code-block" style="background-color: #f0ebe2; color: #1e1e1e; border-left-color: #4a2c2c;">
+        <strong>Chain-of-Thought prompt</strong><br>
         <i>Provide me with necessary information on the cultural event "Il Tesoro dei Medici". For example: 
-Input: Provide me with necessary information  on the cultural event "Through the Centuries From Giotto to Malevich".
-Output: The event "Through the Centuries From Giotto to Malevich". The most basic information about any event is the date and the place of it. Thus, the date of the event was May 2011 – there is the source [the source]. Then, the event, according to [this source], was held in Russia, Moscow, in the Kremlin Museums. Another vital point needed to be considered while investigating an event is the organisers of it. For the currently explored event, the organisers are The Ministry of Foreign affairs and the "Museo Puškin delle belle arti" [the source]. 
-Let’s think step by step
+<p>Input: Provide me with necessary information  on the cultural event "Through the Centuries From Giotto to Malevich".</p>
+<p>Output: The event "Through the Centuries From Giotto to Malevich". The most basic information about any event is the date and the place of it. Thus, the date of the event was May 2011 – there is the source [the source]. Then, the event, according to [this source], was held in Russia, Moscow, in the Kremlin Museums. Another vital point needed to be considered while investigating an event is the organisers of it. For the currently explored event, the organisers are The Ministry of Foreign affairs and the "Museo Puškin delle belle arti" [the source].</p> 
+<p>Let’s think step by step.</p>
 </i>
     </div>
-    <p><h3>The results</h3></p>
-      <img src="images/result5.png" alt="menologio" width="700" height="400">
-      <img src="images/result6.png" alt="menologio" width="700" height="400">
+      <p><h3>The results</h3></p>
+      <img src="images/result5.png" alt="menologio" width="700" height="600">
+      <img src="images/result6.png" alt="menologio" width="700" height="600">
 
     <h3>Step 2: Answers</h3>
     <ul>
-        <li><strong>ChatGPT:</strong> (pic. 1) Despite the format prompting, the LLM has given a lot of context on the event, thus "opening a dialogue" with the user. However, the tool managed to provide necessary information, immediately indicating reliable sources.</li>
-        <li><strong>Pi AI:</strong> (pic. 2) The tool has not proven to be "the first emotionally intelligent AI" since it lacks the hooks to encourage communication with the user. What is even more important is the fact of Pi AI providing false information about the event, not considering the possibility of several events with the same name existing.</li>
+        <li><strong>Zero-shot.</strong><i>ChatGPT:</i> the tool managed to provide with almost all the information found about the event that cannot directly be categorized as „necessary”. The model has also indicated the sources. <i>Pi AI:</i> the LLM, especially compared to ChatGPT’s output, has provided with little information on the event, not covering the needed aspects in its’output.
+<strong>The conclusion: Pi AI requires more detailed engineered prompt.</strong>
+</li>
+        <li><strong>Few-shot.</strong><i>ChatGPT:</i> the model followed the suggested output format perfectly. The source checking proved the information true. <i>Pi AI:</i> the tool followed the suggested output format, although adding some new information (the curators of the event). The source checking proved the information true. <strong>The conclusion:</strong> ChatGPT strictly followed the prompt, whilst Pi AI requires more detailed engineered prompt to align with the instructions.</li>
+        <li><strong>Chain-of-Thought.</strong><i>ChatGPT:</i> the tool’s output is full and rich with all the sources indicated. The source checking proved the information true. <i>Pi AI:</i> the output is much shorter compared to that of ChatGPT. Nevertheless, it answers the main questions indicated in the project. Althought the LLM failed to provide any sources. The source checking proved the information false.
+<strong>The conclusion: Pi AI failed to provided trustful unformation whilst ChatGPT’s output was not only truthful, but also covered all the needed aspects.</strong>
+</li>
     </ul>
     <div class="summary-box">
-        <p><strong>Conclusion:</strong> ChatGPT, although adding too much context to its replies, is a more reliable LLM and will be used for this project. For less reliable AI tools, more detailed engineering of the initial prompt is required. It includes providing more information about the event in the prompt, hence avoiding the target event being mixed up with any other one holding the same name.</p>
+        <p><strong>The general conclusion:</strong>The general conclusion: ChatGPT, although adding too much context to its replies (except of the Few-shot technique prompting), is more reliable LLM and will be used for this project. For less reliable AI tools, the more detailed prompt engineering is required. Moreover, for out project the Few-Shot prompting proved to be the most efficient one, since with this technique provides us with the most clear, transparent and no-unnecessary-information output.</p>
     </div>
  
 </section>
