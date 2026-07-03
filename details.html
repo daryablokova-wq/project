@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Tesoro dei Medici</title>
+    <style>
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #faf9f7;
+            color: #1e1e1e;
+        }
+        /* Navigation Bar */
+        .navbar {
+            background-color: #4a2c2c;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .navbar a {
+            color: #f5f0e8;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            background-color: #b8860b;
+            color: white;
+        }
+        .navbar a.active {
+            background-color: #b8860b;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #8b1a1a;
+            padding-bottom: 10px;
+            color: #4a0e0e;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            color: #5c2e2e;
+            border-left: 5px solid #b8860b;
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            color: #3a3a3a;
+            font-weight: 600;
+        }
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 1.2rem;
+            color: #4a2c2c;
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        .event-meta {
+            background-color: #ece8e0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 6px solid #b8860b;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th {
+            background-color: #4a2c2c;
+            color: #f5f0e8;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            border: 1px solid #d4cdc2;
+            padding: 10px;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f5f0;
+        }
+        tr:hover {
+            background-color: #f0ebe2;
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            color: #e0d6c0;
+            padding: 18px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin: 1rem 0;
+            border-left: 5px solid #b8860b;
+        }
+        .code-block-light {
+            background-color: #f0ebe2;
+            color: #1e1e1e;
+            padding: 18px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            margin: 1rem 0;
+            border-left: 5px solid #4a2c2c;
+        }
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+        .link-list li {
+            margin-bottom: 0.5rem;
+            padding: 8px 12px;
+            background-color: #f1ede6;
+            border-radius: 5px;
+            border-left: 4px solid #b8860b;
+        }
+        .link-list a {
+            color: #6b2e2e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .link-list a:hover {
+            text-decoration: underline;
+            color: #8b1a1a;
+        }
+        .summary-box {
+            background-color: #e8e2d8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #c9bdb0;
+        }
+        .summary-box strong {
+            color: #4a2c2c;
+        }
+        .comparison-box {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .comparison-box > div {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f1ede6;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #b8860b;
+        }
+        hr {
+            border: 1px solid #d4cdc2;
+            margin: 2rem 0;
+        }
+        .footer-note {
+            font-style: italic;
+            color: #5a4f44;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            border-top: 1px solid #d4cdc2;
+            padding-top: 1rem;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #8b1a1a;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            h1 { font-size: 1.8rem; }
+            .code-block { font-size: 0.75rem; padding: 12px; }
+            table { font-size: 0.85rem; }
+            td, th { padding: 6px; }
+            .comparison-box { flex-direction: column; }
+            .navbar { flex-direction: column; align-items: center; }
+            .navbar a { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Homepage</a>
+    <a href="description.html">Project description</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="details.html">The project in details</a>
+    <a href="challenges.html" class="active">Challenges</a>
+    <a href="report.html">📄 Report</a>
+</div>
+    <body>
+    <div class="content">
+        <h1>Daria</h1>
+        <h1>Tesoro dei Medici</h1>
+       
+    <h2>1. Exhibition Overview</h2>
+    <div class="event-meta">
+        <p><strong>“Il Tesoro dei Medici”</strong> was an exhibition held in <strong>Moscow</strong> in 2011. It ran from <strong>20 May to 1 August 2011</strong> and was organized as part of the cultural exchanges between Italy and Russia.</p>
+        <p>The exhibition presented the extraordinary decorative-art collection of the Medici family, the dynasty that ruled Florence and Tuscany during the Renaissance. The works came mainly from the Medici collections preserved in Florence.</p>
+        <p>The show focused not on paintings, but on the Medici passion for luxury objects and collecting, including jewellery, gold and silver works, and artistic objects that demonstrated the family’s wealth, taste, and political power.</p>
+        <p>A major theme of the exhibition was how the Medici used collecting as a way to express Renaissance ideals of culture, magnificence, and authority. The treasures reflected the tastes of rulers such as <strong>Cosimo I de' Medici</strong> and later members of the dynasty, including the final Medici heir <strong>Anna Maria Luisa de' Medici</strong>.</p>
+    </div>
+</section>
+          <img src="tesoro.jpg" alt="menologio" width="1000" height="600">
+
+<!-- SPARQL Queries and Results -->
+<section>
+    <h2>2. SPARQL Queries & Results</h2>
+    <p>The following queries were used to explore the ArCo knowledge graph and retrieve information about cultural events in Russia.</p>
+
+    <!-- Query 1 -->
+    <h3>Query 1: Events in Moscow</h3>
+    <div class="code-block">PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX clv: &lt;https://w3id.org/italia/onto/CLV/&gt;
+PREFIX cis: &lt;http://dati.beniculturali.it/cis/&gt;
+
+SELECT *
+WHERE {
+  ?place a cis:GeographicalFeature ;
+         rdfs:label "Mosca" .
+  ?event a cis:CulturalEvent ;
+         clv:hasSpatialCoverage ?place ;
+         rdfs:label ?eventLabel
+}
+ORDER BY DESC(?eventLabel)
+LIMIT 100</div>
+    <p><strong>Description:</strong> Since we decided to work on events combining Russian and Italian cultural heritage, the initial first step is choosing an event. The main cities to consider in Russia are Moscow and Saint-Petersburg. The query for Saint-Petersburg (rdfs:label "Pietroburgo") has shown only one event (link 1) held in 1902, while the query for Moscow (rdfs:label "Mosca") has shown much more options (link 2). My choice was <strong>"Il Tesoro dei Medici", 2011</strong>, since it is a modern event and it is easier to find relevant information about it; </p>
+    <ul class="link-list">
+        <li><a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+rdfs%3A%0D%0A%0D%0A%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0APREFIX+clv%3A+%3Chttps%3A%2F%2Fw3id.org%2Fitalia%2Fonto%2FCLV%2F%3E%0D%0A%0D%0APREFIX+cis%3A+%3Chttp%3A%2F%2Fdati.beniculturali.it%2Fcis%2F%3E%0D%0A%0D%0A%0D%0ASELECT+*%0D%0A%0D%0AWHERE+%7B%0D%0A%0D%0A%3Fplace+a+cis%3AGeographicalFeature+%3B%0D%0A%0D%0Ardfs%3Alabel+%22Pietroburgo%22+.%0D%0A%0D%0A%3Fevent+a+cis%3ACulturalEvent+%3B%0D%0A%0D%0Aclv%3AhasSpatialCoverage+%3Fplace+%3B%0D%0A%0D%0Ardfs%3Alabel+%3FeventLabel%0D%0A%0D%0A%7D%0D%0A%0D%0AORDER+BY+DESC%28%3FeventLabel%29%0D%0A%0D%0ALIMIT+100&format=text%2Fhtml&timeout=0&signal_void=on">link 1 (Saint-Petersburg query results)</a></li>
+        <li><a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+rdfs%3A%0D%0A%0D%0A%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0APREFIX+clv%3A+%3Chttps%3A%2F%2Fw3id.org%2Fitalia%2Fonto%2FCLV%2F%3E%0D%0A%0D%0APREFIX+cis%3A+%3Chttp%3A%2F%2Fdati.beniculturali.it%2Fcis%2F%3E%0D%0A%0D%0A%0D%0ASELECT+*%0D%0A%0D%0AWHERE+%7B%0D%0A%0D%0A%3Fplace+a+cis%3AGeographicalFeature+%3B%0D%0A%0D%0Ardfs%3Alabel+%22Mosca%22+.%0D%0A%0D%0A%3Fevent+a+cis%3ACulturalEvent+%3B%0D%0A%0D%0Aclv%3AhasSpatialCoverage+%3Fplace+%3B%0D%0A%0D%0Ardfs%3Alabel+%3FeventLabel%0D%0A%0D%0A%7D%0D%0A%0D%0AORDER+BY+DESC%28%3FeventLabel%29%0D%0A%0D%0ALIMIT+100&format=text%2Fhtml&timeout=0&signal_void=on">link 2 (Moscow query results – full list)</a></li>
+    </ul>
+
+    <!-- Query 2 -->
+    <h3>Query 2: Describe Event IRI</h3>
+    <div class="code-block">PREFIX cis: &lt;https://w3id.org/arco/resource/CulturalEvent/&gt;
+DESCRIBE cis:4c88dc5e0662f98f9c0ff26a0b51e4d3</div>
+    <p><strong>Description:</strong> The first thing needed to be done is to determine the information about my event that is already present in the ArCo. Exploring the KG's ontology, we are able to identify and use classes and properties that can be used to model a needed query. The task can be done in a couple of ways. For instance, on the left I have provided a SPARQL query requesting all the information available about the event in the form of microdata document. Along with the place, name (rdfs:label OR l0:name) and the date (tiapit:time) of my event, I have successfully found the information about the type of the event (rdf:type) and a cultural entity involved – unfortunately, only one entity is presented in the microdata document (cis:involvesCulturalEntity) (<a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+cis%3A+%3Chttps%3A%2F%2Fw3id.org%2Farco%2Fresource%2FCulturalEvent%2F%3E%0D%0ADESCRIBE+cis%3A4c88dc5e0662f98f9c0ff26a0b51e4d3&format=text%2Fhtml&timeout=0&signal_void=on">link 3</a>).</p>
+    <p>However, by comparing the events held in different cities, we can assume that for each of them the pieces of information indicated are these:
+        <ul>
+            <li><strong>a)</strong> name of the event (rdfs:label OR l0:name);</li>
+            <li><strong>b)</strong> type of the event (rdf:type);</li>
+            <li><strong>c)</strong> paintings, sculptures, other masterpieces presented (cis:involvesCulturalEntity);</li>
+            <li><strong>d)</strong> date of the event (ti:time).</li>
+        </ul>
+        Usually these features are the only ones presented on the IRI of an event. Thus, a lot of information is missing.
+    </p>
+
+    <!-- Query 3 -->
+    <h3>Query 3: All Properties of the Event</h3>
+    <div class="code-block">PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT ?property ?value ?valueLabel
+WHERE {
+  &lt;https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3&gt;
+    ?property ?value .
+  OPTIONAL {
+    ?value rdfs:label ?valueLabel .
+  }
+}</div>
+    <p><strong>Description:</strong> However, I wanted to focus on two specific missing things for my event. When I have checked via SPARQL whether they exist, the answer from ArCo made it clear they are not presented in the KG. Those things are as following:<br>
+        <strong>a)</strong> what museum held my event in Moscow (e.g., through clv:hasSpatialCoverage) – no response, empty table;<br>
+        <strong>b)</strong> who has organised my event (e.g., through "arco:hasEventOrganiser ?organiser") – no response, empty table.</p>
+    <p>Checking the results with the SPARQL query that allows us to see all the features of the specific event (provided on the left, plus see <a href="https://dati.cultura.gov.it/sparql?default-graph-uri=&query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0ASELECT+%3Fproperty+%3Fvalue+%3FvalueLabel%0D%0A%0D%0AWHERE+%7B%0D%0A%0D%0A%3Chttps%3A%2F%2Fw3id.org%2Farco%2Fresource%2FCulturalEvent%2F4c88dc5e0662f98f9c0ff26a0b51e4d3%3E%0D%0A%3Fproperty+%3Fvalue+.%0D%0A%0D%0AOPTIONAL+%7B%0D%0A++%3Fvalue+rdfs%3Alabel+%3FvalueLabel+.%0D%0A%7D%0D%0A%0D%0A%7D&format=text%2Fhtml&timeout=0&signal_void=on">link 4</a>), we receive the proof ArCo misses the specific place of the event and its organisers. Those are the problems we are focusing on.</p>
+</section>
+
+<!-- AI Tools & Prompting -->
+<section>
+    <h2>3. Using AI Tools to Enrich the Knowledge Graph</h2>
+
+    <h3>Step 1: Questions</h3>
+    <p>The next step is to ask the AI tools to provide us with all the necessary information. We use <strong>ChatGPT</strong>, since it is one of the most versatile conversational and "reliable" AI tools. Nevertheless, we will be comparing ChatGPT's responses to those of <strong>Pi AI</strong> known as "the first emotionally intelligent AI", as indicated on its website, for researching purposes. In order to minimise any additional context, we will apply format prompting to the both AI tools.</p>
+    <div class="code-block" style="background-color: #f0ebe2; color: #1e1e1e; border-left-color: #4a2c2c;">
+        <strong>Prompt for the LLMs:</strong><br>
+        "Provide me with necessary information on 'Il Tesoro dei Medici'. Provide me with the answer as following: 1) the date of the event; 2) the place of the event – country, city, museum; 3) the organisers of the event. The date of the event is being asked to avoid the possibility of events with the same name appearing."
+    </div>
+      <img src="tesoro2.jpg" alt="menologio" width="1000" height="600">
+      <img src="tesoro3.jpg" alt="menologio" width="1000" height="600">
+
+    <h3>Step 2: Answers</h3>
+    <ul>
+        <li><strong>ChatGPT:</strong> (pic. 1) Despite the format prompting, the LLM has given a lot of context on the event, thus "opening a dialogue" with the user. However, the tool managed to provide necessary information, immediately indicating reliable sources.</li>
+        <li><strong>Pi AI:</strong> (pic. 2) The tool has not proven to be "the first emotionally intelligent AI" since it lacks the hooks to encourage communication with the user. What is even more important is the fact of Pi AI providing false information about the event, not considering the possibility of several events with the same name existing.</li>
+    </ul>
+    <div class="summary-box">
+        <p><strong>Conclusion:</strong> ChatGPT, although adding too much context to its replies, is a more reliable LLM and will be used for this project. For less reliable AI tools, more detailed engineering of the initial prompt is required. It includes providing more information about the event in the prompt, hence avoiding the target event being mixed up with any other one holding the same name.</p>
+    </div>
+ 
+</section>
+
+<!-- Enrichment Triplets -->
+<section>
+    <h2>4. Enriching ArCo Ontology with New Triplets</h2>
+
+    <!-- Triplet A -->
+    <h3>Triplet A: Spatial Coverage (Museum)</h3>
+    <div class="code-block">https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3
+clv:hasSpatialCoverage
+https://w3id.org/arco/resource/GeographicalFeature/d3e863b4c91bff6d3a274e923e9e5968/MuseiDelCremlino</div>
+    <p><strong>Solving problem a) what museum held my event in Moscow.</strong><br>
+    Combining the ArCo ontology fully provided in its dictionaries and LLMs, we design new triplets, thus enriching the ArCo ontology.<br>
+    <strong>Answer known:</strong> the event occurred in Russia, Moscow, in the <strong>Armoury Chamber of the Kremlin Museums</strong>.<br>
+    <strong>New triplet:</strong> Il Tesoro dei Medici – hasSpatialCoverage – the Kremlin Museums.</p>
+    <p>The SPARQL query through the ArCo ontology and ChatGPT is provided on the left.</p>
+
+    <!-- Triplet B -->
+    <h3>Triplet B: Event Organiser</h3>
+    <div class="code-block">https://w3id.org/arco/resource/CulturalInstituteOrSite/DBunicoCG20403
+event:isEventOrganiserof
+https://w3id.org/arco/resource/CulturalEvent/4c88dc5e0662f98f9c0ff26a0b51e4d3</div>
+    <p><strong>Solving problem b) who has organised my event.</strong><br>
+    <strong>Answer known:</strong> the event was organised by <strong>Gallerie degli Uffizi, Florence</strong>.<br>
+    <strong>New triplet (option 1):</strong> Gallerie degli Uffizi – isEventOrganiserof – Il Tesoro dei Medici<br>
+    <strong>OR</strong><br>
+    <strong>New triplet (option 2):</strong> Il Tesoro dei Medici – hasEventOrganiser – Gallerie degli Uffizi</p>
+    <p>The SPARQL query through the ArCo ontology and ChatGPT for the first option is provided on the left.</p>
+</section>
+
+<!-- Summary -->
+<section>
+    <h2>5. Summary: Enriched Triplets</h2>
+    <div class="summary-box">
+        <p><strong>To sum up</strong>, using AI tools and the ontology of ArCo, we were able not only to investigate the weak points of the knowledge graph and lack of specific pieces of information, but also to successfully solve these problems, thus enriching the ArCo's ontology with two new triplets:</p>
+        <ul>
+            <li><strong>a)</strong> Il Tesoro dei Medici – hasSpatialCoverage – the Kremlin Museums</li>
+            <li><strong>b)</strong> Gallerie degli Uffizi – isEventOrganiserof – Il Tesoro dei Medici <br>
+                <em>OR</em> <br>
+                Il Tesoro dei Medici – hasEventOrganiser – Gallerie degli Uffizi
+            </li>
+        </ul>
+    </div>
+</section>
+
+<hr>
+
+</body>
+</html>
